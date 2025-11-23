@@ -46,12 +46,40 @@ export const experiences: Experience[] = [
     }
 ];
 
+export interface SkillCategory {
+    category: string;
+    skills: string[];
+}
+
 export const education: Education[] = [
     {
         degree: "Bachiller en Economía",
         institution: "Pontificia Universidad Católica del Perú",
-        period: "2018 - 2023",
+        period: "2024",
         description: "Especialización en métodos cuantitativos y economía aplicada."
+    }
+];
+
+export const skills: SkillCategory[] = [
+    {
+        category: "Lenguajes de Programación",
+        skills: ["Python", "R", "SQL", "Java", "Matlab", "Stata"]
+    },
+    {
+        category: "Datos y Análisis",
+        skills: ["Análisis estadístico", "Análisis econométrico", "Machine Learning", "Power BI", "Dashboards", "Excel (Macros)"]
+    },
+    {
+        category: "Ingeniería de Datos",
+        skills: ["ETL/ELT", "PySpark", "Airflow", "Modelado de datos", "SQL Server"]
+    },
+    {
+        category: "Infraestructura & Cloud",
+        skills: ["AWS", "GCP", "Azure"]
+    },
+    {
+        category: "Herramientas Adicionales",
+        skills: ["Git", "GitHub", "ArcGIS", "Markdown/Quarto", "Canva"]
     }
 ];
 

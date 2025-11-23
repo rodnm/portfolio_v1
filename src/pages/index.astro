@@ -8,8 +8,15 @@ import {
 	Linkedin,
 	ExternalLink,
 	GraduationCap,
+	Cpu,
 } from "lucide-react";
-import { personalInfo, experiences, projects, education } from "../config";
+import {
+	personalInfo,
+	experiences,
+	projects,
+	education,
+	skills,
+} from "../config";
 ---
 
 <Layout title={`Portafolio de ${personalInfo.name}`}>
@@ -156,6 +163,36 @@ import { personalInfo, experiences, projects, education } from "../config";
 										{edu.description}
 									</p>
 								)}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<!-- Skills Section -->
+	<section id="skills" class="py-20 px-4">
+		<div class="max-w-4xl mx-auto">
+			<h2
+				class="text-3xl md:text-4xl font-bold mb-12 text-center flex items-center justify-center gap-3"
+			>
+				<Cpu className="w-8 h-8 text-[var(--color-secondary)]" />
+				Conocimiento Técnico
+			</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				{
+					skills.map((category) => (
+						<div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700">
+							<h3 class="text-xl font-bold mb-4 text-[var(--color-primary)] dark:text-[var(--color-accent)]">
+								{category.category}
+							</h3>
+							<div class="flex flex-wrap gap-2">
+								{category.skills.map((skill) => (
+									<span class="px-3 py-1 text-sm rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
+										{skill}
+									</span>
+								))}
 							</div>
 						</div>
 					))
