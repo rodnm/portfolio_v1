@@ -72,7 +72,7 @@ export const projects: Project[] = [
     },
     {
         title: "Rseries",
-        description: "This package contains beauty palettes to personalize plots with the style of series of plataforms like Netflyx, Amazon Prime or local TV from Latin American Countries",
+        description: "Este paquete contiene paletas de belleza para personalizar tramas con el estilo de series de plataformas como Netflix, Amazon Prime o TV local de países de Latinoamérica.",
         tags: ["R", "Git", "GitHub"],
         link: "https://github.com/diognes/Rseries",
         image: "/images/rseries.png"
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     {
         title: "Portfolio V1",
         description: "Primera versión de mi portafolio personal usando Astro.",
-        tags: ["HTML", "Tailwind", "TypeScript"],
+        tags: ["HTML", "Astro", "Tailwind CSS", "TypeScript", "React", "Git", "GitHub"],
         link: "#",
         image: "/images/portfolio-v1.png"
     }
