@@ -85,6 +85,13 @@ export const skills: SkillCategory[] = [
 
 export const projects: Project[] = [
     {
+        title: "Crypto Monitor",
+        description: "Este proyecto es un monitor de criptomonedas en tiempo real que obtiene datos de la API de CoinGecko, los procesa y los visualiza en un panel interactivo de Streamlit.",
+        tags: ["Python", "Streamlit"],
+        link: "https://github.com/rodnm/crypto-monitor",
+        image: "/images/crypto-monitor.png"
+    },
+    {
         title: "Análisis de comercio mundial de tierras raras",
         description: "Dashboard que presenta un análisis del comercio mundial de tierras raras para el periodo 1995-2022. La fuente empleada son los datos de Observatory of Economic Complexity (OEC).",
         tags: ["R", "Power BI"],
@@ -179,6 +186,13 @@ export const englishData: PortfolioData = {
         }
     ],
     projects: [
+        {
+            title: "Crypto Monitor",
+            description: "This project is a real-time cryptocurrency monitor that fetches data from the CoinGecko API, processes it, and visualizes it in an interactive Streamlit dashboard.",
+            tags: ["Python", "Streamlit"],
+            link: "https://github.com/rodnm/crypto-monitor",
+            image: "/images/crypto-monitor.png"
+        },
         {
             title: "Global Rare Earth Trade Analysis",
             description: "Dashboard presenting an analysis of global rare earth trade for the period 1995-2022. The source used is data from the Observatory of Economic Complexity (OEC).",
