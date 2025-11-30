@@ -2,6 +2,7 @@
 import MobileMenu from "../components/MobileMenu";
 import Navigation from "../components/Navigation";
 import ScrollProgress from "../components/ScrollProgress";
+import LanguageDetector from "../components/LanguageDetector";
 import SEO from "../components/SEO.astro";
 import { navigation } from "../config";
 import "../styles/global.css";
@@ -30,6 +31,20 @@ const navItems = navigation[locale];
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-XXXXXXXXXX");
+        </script>
+
         <script is:inline>
             const theme = (() => {
                 if (
@@ -56,6 +71,7 @@ const navItems = navigation[locale];
     <body
         class="bg-white dark:bg-[#1a1a1a] text-gray-900 dark:text-gray-100 transition-colors duration-300"
     >
+        <LanguageDetector client:load />
         <ScrollProgress client:load />
         <header
             class="fixed w-full top-0 z-50 bg-white/80 dark:bg-[#1a1a1a]/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800"

@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Home, ArrowLeft } from "lucide-react";
+
+const title = "404 - Página No Encontrada";
+const description = "La página que buscas no existe.";
+---
+
+<Layout title={title} description={description}>
+    <div
+        class="min-h-screen flex items-center justify-center px-4 bg-gray-50 dark:bg-[#1a1a1a]"
+    >
+        <div class="text-center">
+            <h1
+                class="text-9xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] dark:from-[var(--color-accent)] dark:to-[var(--color-secondary)] animate-pulse"
+            >
+                404
+            </h1>
+            <h2
+                class="text-3xl font-bold mt-4 mb-2 text-gray-900 dark:text-white"
+            >
+                Página No Encontrada
+            </h2>
+            <p
+                class="text-gray-600 dark:text-gray-300 mb-8 max-w-md mx-auto text-lg"
+            >
+                Lo sentimos, la página que buscas no existe o ha sido movida.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                    href="/"
+                    class="px-6 py-3 bg-[var(--color-primary)] text-white rounded-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg dark:bg-[var(--color-accent)] dark:text-gray-900 font-bold"
+                >
+                    <Home className="w-5 h-5" />
+                    Volver al Inicio
+                </a>
+                <button
+                    onclick="history.back()"
+                    class="px-6 py-3 border-2 border-[var(--color-primary)] text-[var(--color-primary)] rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-all flex items-center justify-center gap-2 dark:border-[var(--color-accent)] dark:text-[var(--color-accent)] dark:hover:bg-[var(--color-accent)] dark:hover:text-gray-900 font-bold"
+                >
+                    <ArrowLeft className="w-5 h-5" />
+                    Regresar
+                </button>
+            </div>
+        </div>
+    </div>
+</Layout>
