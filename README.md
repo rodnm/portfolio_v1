@@ -56,6 +56,21 @@ Para personalizar las imágenes y archivos, coloca tus archivos en la carpeta `p
 -   **CV**: Guarda tu CV como `public/cv.pdf` (o actualiza la ruta en `src/config.ts`).
 -   **Imágenes de Proyectos**: Guarda las imágenes en `public/images/` y actualiza las rutas en la sección `projects` de `src/config.ts`.
 
+### 3. Formulario de Contacto
+El formulario utiliza **Formspree** para enviar correos. Para configurarlo:
+1. Crea una cuenta gratuita en [Formspree](https://formspree.io/).
+2. Crea un nuevo formulario ("New Form").
+3. Copia el **Form ID** (el código al final de la URL, ej: `f/xpzq...`).
+4. Abre `src/components/Portfolio.astro` y busca el componente `<ContactForm />`.
+5. Reemplaza el valor de `formId` con tu propio ID:
+   ```tsx
+   <ContactForm 
+       client:load 
+       formId="TU_ID_AQUI" 
+       // ...
+   />
+   ```
+
 ## 📂 Estructura del Proyecto
 
 ```text
