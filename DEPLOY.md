@@ -1,52 +1,71 @@
-# Guía de Despliegue
+# Guía de Despliegue en GitHub Pages
 
-Aquí tienes las instrucciones para publicar tu portafolio en internet.
+Este proyecto está configurado para desplegarse automáticamente en GitHub Pages utilizando GitHub Actions.
 
-## Opción 1: Netlify (Recomendado - Más fácil)
+## Tipos de Despliegue
 
-Netlify es excelente porque detecta automáticamente proyectos de Astro y los configura.
+GitHub Pages ofrece dos formas de desplegar tu sitio, y la configuración cambia ligeramente dependiendo de cuál elijas.
 
-### Método A: Conectar con GitHub (Automático)
-1.  Sube tu código a un repositorio en GitHub.
-2.  Ve a [netlify.com](https://www.netlify.com/) y regístrate/inicia sesión.
-3.  Haz clic en **"Add new site"** > **"Import an existing project"**.
-4.  Selecciona **GitHub** y busca tu repositorio `portfolio_v1`.
-5.  Netlify detectará que es un proyecto Astro.
-    *   **Build command**: `npm run build`
-    *   **Publish directory**: `dist`
-6.  Haz clic en **"Deploy site"**.
-7.  ¡Listo! Tu sitio estará en línea en unos segundos.
+### 1. User Site (Recomendado)
 
-### Método B: Drag & Drop (Manual)
-1.  En tu terminal, ejecuta: `npm run build`.
-2.  Esto creará una carpeta `dist/` en tu proyecto.
-3.  Ve a [netlify.com/drop](https://app.netlify.com/drop).
-4.  Arrastra la carpeta `dist/` al área indicada.
-5.  Tu sitio se subirá y publicará instantáneamente.
+Tu sitio estará en la raíz de tu dominio de usuario: `https://usuario.github.io`.
 
----
+**Requisitos:**
 
-## Opción 2: GitHub Pages
+- El repositorio debe llamarse **exactamente** `usuario.github.io`.
+- En `astro.config.mjs`, la configuración debe ser:
+    ```javascript
+    export default defineConfig({
+        site: 'https://usuario.github.io',
+        // No se necesita 'base' o se puede dejar en '/'
+    });
+    ```
 
-Para alojar tu sitio en GitHub Pages, necesitas configurar una "Acción" de GitHub.
+### 2. Project Site
 
-1.  Sube tu código a un repositorio en GitHub.
-2.  En tu repositorio, ve a la pestaña **Settings** > **Pages**.
-3.  En **Source**, selecciona **GitHub Actions**.
-4.  GitHub sugerirá "Astro". Haz clic en **Configure**.
-5.  Se abrirá un editor con un archivo `.yml`. Simplemente haz clic en **Commit changes**.
-6.  Espera unos minutos y tu sitio estará disponible en `https://tu-usuario.github.io/nombre-repo/`.
+Tu sitio estará en una subcarpeta: `https://usuario.github.io/nombre-repo/`.
 
-**Nota Importante para GitHub Pages:**
-Si tu sitio no se ve bien (faltan estilos o imágenes), es posible que necesites configurar la propiedad `site` y `base` en `astro.config.mjs`:
+**Requisitos:**
 
-```javascript
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
+- El repositorio puede tener cualquier nombre (ej: `portfolio_v1`).
+- En `astro.config.mjs`, debes configurar `base` con el nombre del repositorio:
+    ```javascript
+    export default defineConfig({
+        site: 'https://usuario.github.io',
+        base: '/nombre-repo', // Ejemplo: '/portfolio_v1'
+    });
+    ```
 
-export default defineConfig({
-  site: 'https://tu-usuario.github.io',
-  base: '/nombre-repo', // Solo si tu repo no es tu-usuario.github.io
-  // ... resto de la config
-});
-```
+## Configuración Actual
+
+Actualmente, el proyecto está configurado como **User Site** (`https://rodnm.github.io`).
+
+- **Repositorio:** `rodnm.github.io`
+- **Configuración:** Sin `base` path (raíz).
+
+## Cómo Desplegar
+
+1. **Push a la rama `main`:**
+   Cada vez que hagas un push a la rama `main`, GitHub Actions construirá y desplegará el sitio automáticamente.
+
+    ```bash
+    git add .
+    git commit -m "feat: nuevo cambio"
+    git push origin main
+    ```
+
+2. **Verificar el estado:**
+   Puedes ver el progreso del despliegue en la pestaña **Actions** de tu repositorio en GitHub.
+
+3. **Configuración en GitHub:**
+   Asegúrate de que en **Settings > Pages** de tu repositorio, la fuente esté configurada como **GitHub Actions**.
+
+## Solución de Problemas
+
+- **Estilos no cargan (Página en blanco o solo HTML):**
+  Esto suele ocurrir si la configuración `base` en `astro.config.mjs` no coincide con la URL de tu repositorio.
+    - Si tu URL es `usuario.github.io/repo`, necesitas `base: '/repo'`.
+    - Si tu URL es `usuario.github.io`, NO necesitas `base`.
+
+- **Error 404 en rutas:**
+  Asegúrate de que el archivo `public/.nojekyll` exista. Esto evita que GitHub Pages ignore archivos que comienzan con `_` (como `_astro`).

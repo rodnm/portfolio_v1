@@ -9,7 +9,6 @@ import AstroPWA from '@vite-pwa/astro';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://rodnm.github.io',
-  base: '/portfolio_v1',
   vite: {
     plugins: [tailwindcss()]
   },
@@ -19,8 +18,8 @@ export default defineConfig({
     sitemap(),
     AstroPWA({
       registerType: 'autoUpdate',
-      scope: '/portfolio_v1/',
-      base: '/portfolio_v1/',
+      scope: '/',
+      base: '/',
       manifest: {
         name: 'Rodrigo Norabuena - Portfolio',
         short_name: 'RN Portfolio',
